@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">JobFinder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_location">Минск</string>
+    <string name="text_company">Мобириск</string>
+    <string name="text_viewers">Сейчас просматривает 1 человек</string>
+    <string name="text_job_title">UI/UX Designer</string>
+    <string name="text_experience">Опыт от 1 года до 3 лет</string>
+    <string name="text_published_date">Опубликовано 20 февраля</string>
+    <string name="button_apply">Откликнуться</string>
+    <string name="experience">Опыт</string>
+    <string name="location">Локация</string>
+    <string name="favorite">избранное</string>
 </resources>

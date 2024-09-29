@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
 }
 
 android {
@@ -42,7 +43,32 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Навигация и UI
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.1")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.8.1")
+
+    // AdapterDelegates для работы с адаптерами
+    implementation ("com.hannesdorfmann:adapterdelegates4:4.3.0")
+
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.24")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+    // Koin core features
+    implementation ("io.insert-koin:koin-core:3.4.0")
+
+    // Koin Android features
+    implementation ("io.insert-koin:koin-android:3.4.0")
+    testImplementation("io.insert-koin:koin-test:3.4.0")
+
+    implementation (libs.glide)
+
 }
