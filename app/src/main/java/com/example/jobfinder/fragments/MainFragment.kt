@@ -42,45 +42,45 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        // Запрос разрешений
+//        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+//            != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(
+//                requireActivity(),
+//                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
+//                STORAGE_PERMISSION_CODE
+//            )
+//        } else {
+//            // Разрешения уже предоставлены, можно выполнять действия
+//            viewModel.vacancies.observe(viewLifecycleOwner) {
+//
+//            }
+//        }
+//
+//    }
 
-        // Запрос разрешений
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE),
-                STORAGE_PERMISSION_CODE
-            )
-        } else {
-            // Разрешения уже предоставлены, можно выполнять действия
-            viewModel.vacancies.observe(viewLifecycleOwner) {
-                Log.d("vacancies", it.toString())
-            }
-        }
 
-    }
-
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Разрешение предоставлено
-                viewModel.vacancies.observe(viewLifecycleOwner) {
-                    Log.d("vacancies", it.toString())
-                }
-            } else {
-                // Разрешение не предоставлено, обработайте это
-                Log.e("Permissions", "Storage permission denied")
-            }
-        }
-    }
+//    override fun onRequestPermissionsResult(
+//        requestCode: Int,
+//        permissions: Array<out String>,
+//        grantResults: IntArray
+//    ) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+//        if (requestCode == STORAGE_PERMISSION_CODE) {
+//            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                // Разрешение предоставлено
+//                viewModel.vacancies.observe(viewLifecycleOwner) {
+//                    Log.d("vacancies", it.toString())
+//                }
+//            } else {
+//                // Разрешение не предоставлено, обработайте это
+//                Log.e("Permissions", "Storage permission denied")
+//            }
+//        }
+//    }
 
     companion object {
         @JvmStatic

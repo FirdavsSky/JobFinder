@@ -1,6 +1,6 @@
 package com.example.domain.model
 
-data class Vacancy(
+data class JobVacancy(
     val id: String, // Идентификатор
     val title: String, // Название вакансии
     val address: String, // Адрес

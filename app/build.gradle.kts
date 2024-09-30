@@ -71,4 +71,6 @@ dependencies {
 
     implementation (libs.glide)
 
+    implementation ("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
+
 }

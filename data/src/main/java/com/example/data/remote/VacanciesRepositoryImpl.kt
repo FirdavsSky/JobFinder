@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.data.model.toDomain
 import com.example.data.remote.RetrofitInstance.api
-import com.example.domain.model.Vacancy
+import com.example.domain.model.JobVacancy
 import com.example.domain.repository.VacanciesRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,26 +16,19 @@ import kotlinx.coroutines.withContext
 class VacanciesRepositoryImpl() : VacanciesRepository {
 
 
-    override fun getAllVacancies(): LiveData<List<Vacancy>> {
+    override fun getAllVacancies(): LiveData<List<JobVacancy>> {
 
-        val vacanciesLiveData = MutableLiveData<List<Vacancy>>()
+        val vacanciesLiveData = MutableLiveData<List<JobVacancy>>()
 
-        // Запускаем корутину для выполнения сетевого запроса
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Получаем список вакансий
-                val vacancyEntities = api.fetchAllVacancies()
-
-                // Преобразуем VacancyEntity в Vacancy
+                val vacancyEntities = api.fetchAllVacancies().vacancies
                 val vacancies = vacancyEntities.map { it.toDomain() }
-
-                // Обновляем LiveData на главном потоке
                 withContext(Dispatchers.Main) {
                     vacanciesLiveData.value = vacancies
                 }
             } catch (e: Exception) {
                 Log.e("Error", "Ошибка при получении вакансий: ${e.message}")
-                // Обработка ошибок, можно вернуть пустой список или null
                 vacanciesLiveData.postValue(emptyList())
             }
         }
@@ -43,11 +36,11 @@ class VacanciesRepositoryImpl() : VacanciesRepository {
         return vacanciesLiveData
     }
 
-    override fun getVacancyById(id: String): LiveData<Vacancy?> {
+    override fun getVacancyById(id: String): LiveData<JobVacancy?> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun addToFavorites(vacancy: Vacancy) {
+    override suspend fun addToFavorites(jobVacancy: JobVacancy) {
         TODO("Not yet implemented")
     }
 
@@ -55,15 +48,15 @@ class VacanciesRepositoryImpl() : VacanciesRepository {
         TODO("Not yet implemented")
     }
 
-    override fun getFavoriteVacancies(): LiveData<List<Vacancy>> {
+    override fun getFavoriteVacancies(): LiveData<List<JobVacancy>> {
         TODO("Not yet implemented")
     }
 
-    override fun searchVacancies(query: String): LiveData<List<Vacancy>> {
+    override fun searchVacancies(query: String): LiveData<List<JobVacancy>> {
         TODO("Not yet implemented")
     }
 
-    override suspend fun updateVacancy(vacancy: Vacancy) {
+    override suspend fun updateVacancy(jobVacancy: JobVacancy) {
         TODO("Not yet implemented")
     }
 
