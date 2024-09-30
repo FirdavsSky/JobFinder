@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitInstance {
     private val client = OkHttpClient.Builder()
         .addInterceptor(APILoggingInterceptor())
-        .followRedirects(true) // Убедитесь, что редиректы следуют
+        .followRedirects(true)
         .build()
 
     val api: Api by lazy {

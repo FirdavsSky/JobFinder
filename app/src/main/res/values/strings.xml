@@ -12,4 +12,9 @@
     <string name="experience">Опыт</string>
     <string name="location">Локация</string>
     <string name="favorite">избранное</string>
+
+    <string name="required_experience">Требуемый опыт: %1$s</string>
+    <string name="applied_count">%1$d человек уже откликнулись</string>
+    <string name="viewers_count">%1$d человек сейчас смотрят</string>
+    <string name="company_description">%1$s - %2$s</string>
 </resources>

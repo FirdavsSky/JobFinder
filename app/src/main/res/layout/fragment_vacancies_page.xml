@@ -33,14 +33,14 @@
             <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" /> <!-- Заполнитель для отодвигания кнопок вправо -->
+                android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/button_eye"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
-                android:src="@drawable/ic_eye" />
+                android:src="@drawable/ic_eye_to_detail" />
 
             <ImageButton
                 android:id="@+id/button_share"
@@ -56,113 +56,170 @@
                 android:backgroundTint="@android:color/transparent"
                 android:src="@drawable/ic_heart" />
         </LinearLayout>
-
     </androidx.appcompat.widget.Toolbar>
 
-
-    <LinearLayout
+    <!-- Добавляем ScrollView для прокрутки содержимого -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/text_job_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_regular"
-            android:text="@string/text_job_title"
-            android:textColor="#fff"
-            android:textSize="22sp" />
-
-        <TextView
-            android:id="@+id/text_income_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_regular"
-            android:text="Уровень дохода не указан"
-            android:textColor="#fff"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/text_experience"
-            style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Требуемы опыт: от 1 года до 3 лет" />
-
-        <TextView
-            android:id="@+id/text_type_of_employment"
-            style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Полная занятость,полный день" />
-
-
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/text_job_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="@string/text_job_title"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/text_income_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_regular"
+                android:text="Уровень дохода не указан"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/text_experience"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Требуемый опыт: от 1 года до 3 лет" />
+
+            <TextView
+                android:id="@+id/text_type_of_employment"
+                style="@style/TextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Полная занятость, полный день" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:background="@drawable/background_responded"
+                android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
-                <TextView
-                    style="@style/TextViewStyle"
-                    android:layout_width="120dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="147 человек уже отклискулись" />
+                    android:layout_marginEnd="15dp"
+                    android:background="@drawable/background_responded"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_responded" />
+                    <TextView
+                        android:id="@+id/textResponded"
+                        style="@style/TextViewStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="147 человек уже откликнулись" />
 
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_responded" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_responded"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_viewers"
+                        style="@style/TextViewStyle"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="2 человека сейчас смотрят" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_eye" />
+
+                </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/text_company"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_responded"
-                android:orientation="horizontal">
+                android:layout_marginTop="20dp" />
 
-                <TextView
-                    style="@style/TextViewStyle"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="2 человека сейчас смотрят" />
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Ваши задачи"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_eye" />
+            <TextView
+                android:id="@+id/text_responsibilities"
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" />
 
-            </LinearLayout>
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Задайте вопрос работодателю"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
+            <TextView
+                style="@style/TextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Он получит его с откликом на вакансию"
+                android:textColor="#858688" />
 
+            <ListView
+                android:id="@+id/questionList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="8dp"
+                android:scrollbars="vertical" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_apply"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/button_reply_detail_background"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/button_apply"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
         </LinearLayout>
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    </ScrollView>
 
-
-
-
-    </LinearLayout>
 
 
 </LinearLayout>

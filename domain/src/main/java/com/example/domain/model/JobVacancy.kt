@@ -1,7 +1,12 @@
 package com.example.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class JobVacancy(
     val id: String, // Идентификатор
+    val lookingNumber: Int,
     val title: String, // Название вакансии
     val address: String, // Адрес
     val company: String, // Компания
@@ -14,4 +19,4 @@ data class JobVacancy(
     val description: String, // Описание вакансии
     val responsibilities: String, // Обязанности
     val questions: List<String> // Вопросы
-)
+): Parcelable

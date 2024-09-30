@@ -44,13 +44,13 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Retrofit для сетевых запросов
-    implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
 
     // Room для локальной базы данных
-    implementation ("androidx.room:room-runtime:2.6.1")
-    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation (libs.androidx.room.runtime)
+    kapt (libs.androidx.room.compiler)
 
     // Kotlin Coroutines для асинхронной работы
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation (libs.kotlinx.coroutines.core)
 }

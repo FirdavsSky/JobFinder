@@ -54,6 +54,7 @@ data class Salary(
 fun Vacancy.toDomain(): JobVacancy {
     return JobVacancy(
         id = id,
+        lookingNumber = lookingNumber,
         title = title,
         address = address.town + ", " + address.street + ", " + address.house,
         company = company,

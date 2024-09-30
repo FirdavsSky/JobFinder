@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
 }
 
 android {
@@ -14,7 +13,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -51,26 +49,27 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Навигация и UI
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.8.1")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.8.1")
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
 
     // AdapterDelegates для работы с адаптерами
-    implementation ("com.hannesdorfmann:adapterdelegates4:4.3.0")
+    implementation (libs.adapterdelegates4)
 
-    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.24")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation (libs.kotlin.stdlib)
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 
 
     // Koin core features
-    implementation ("io.insert-koin:koin-core:3.4.0")
+    implementation (libs.koin.core)
 
     // Koin Android features
-    implementation ("io.insert-koin:koin-android:3.4.0")
-    testImplementation("io.insert-koin:koin-test:3.4.0")
+    implementation (libs.koin.android)
+    testImplementation(libs.koin.test)
 
+    // Библиотека Glide для загрузки изображения
     implementation (libs.glide)
 
-    implementation ("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2")
+    implementation (libs.adapterdelegates4.kotlin.dsl)
 
 }

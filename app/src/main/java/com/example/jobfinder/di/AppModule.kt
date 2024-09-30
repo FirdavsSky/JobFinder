@@ -11,9 +11,7 @@ val appModule = module {
 
     single { RetrofitInstance.api }
 
-    // Определяем репозиторий
     single<VacanciesRepository> { VacanciesRepositoryImpl() }
 
-    // Определяем ViewModel
     viewModel { VacanciesViewModel(get()) }
 }

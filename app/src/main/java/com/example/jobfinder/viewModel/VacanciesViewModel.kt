@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.domain.model.JobVacancy
 import com.example.domain.repository.VacanciesRepository
 
-class VacanciesViewModel(private val repository: VacanciesRepository) : ViewModel() {
+class VacanciesViewModel(repository: VacanciesRepository) : ViewModel() {
 
     val vacancies: LiveData<List<JobVacancy>> = repository.getAllVacancies()
 
