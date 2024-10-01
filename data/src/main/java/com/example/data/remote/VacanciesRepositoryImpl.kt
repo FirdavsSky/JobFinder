@@ -3,8 +3,7 @@ package com.example.data.remote
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.data.model.toDomain
-import com.example.data.remote.RetrofitInstance.api
+import com.example.data.remote.VacanciesClient.api
 import com.example.domain.model.JobVacancy
 import com.example.domain.repository.VacanciesRepository
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +22,7 @@ class VacanciesRepositoryImpl() : VacanciesRepository {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val vacancyEntities = api.fetchAllVacancies().vacancies
-                val vacancies = vacancyEntities.map { it.toDomain() }
+                val vacancies = vacancyEntities.map { it.toDomain(it) }
                 withContext(Dispatchers.Main) {
                     vacanciesLiveData.value = vacancies
                 }

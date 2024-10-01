@@ -15,25 +15,14 @@ class APILoggingInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val originalRequest = chain.request()
 
-        // Используем оригинальный запрос без изменений
         val response = chain.proceed(originalRequest)
 
         val time: Long = System.currentTimeMillis()
-        val rawJson: String?
 
-        // Проверяем, является ли тело ответа JSON
-        if (response.body()?.contentType().toString().contains("json")) {
-            rawJson = try {
-                response.body()?.string()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                null
-            }
-        } else {
-            rawJson = null
-        }
+        val responseBody = response.body()
+        val contentType = responseBody?.contentType()
+        val content = responseBody?.string()
 
-        // Логирование запроса и ответа
         Log.d(TAG, "-----------------------------START-------------------------------")
         Log.d(
             TAG, "${originalRequest.method()} ${originalRequest.url()} ${bodyToString(originalRequest)}"
@@ -41,20 +30,17 @@ class APILoggingInterceptor : Interceptor {
         Log.d(
             TAG, String.format(
                 Locale.getDefault(), "Response by %dms: code:%s, body=%s",
-                (System.currentTimeMillis() - time), response.code(), rawJson
+                (System.currentTimeMillis() - time), response.code(), content
             )
         )
         Log.d(TAG, "------------------------------END-------------------------------")
 
-        // Возвращаем ответ, сохраняя тело, если это JSON
-        rawJson?.let {
-            return response.newBuilder()
-                .body(ResponseBody.create(response.body()?.contentType(), it))
-                .build()
-        }
 
-        return response
+        return response.newBuilder()
+            .body(ResponseBody.create(contentType, content ?: ""))
+            .build()
     }
+
 
     private fun bodyToString(request: Request): String {
         return try {

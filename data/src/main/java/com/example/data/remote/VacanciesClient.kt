@@ -1,22 +1,25 @@
 package com.example.data.remote
 
-import com.example.data.Const
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
+object VacanciesClient {
+
+    //ToDo: Use NDK to store Url
+    private const val BASE_URL = "https://drive.usercontent.google.com/"
+
     private val client = OkHttpClient.Builder()
         .addInterceptor(APILoggingInterceptor())
         .followRedirects(true)
         .build()
 
-    val api: Api by lazy {
+    val api: VacancyService by lazy {
         Retrofit.Builder()
-            .baseUrl("https://drive.usercontent.google.com/")
+            .baseUrl(BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(Api::class.java)
+            .create(VacancyService::class.java)
     }
 }
