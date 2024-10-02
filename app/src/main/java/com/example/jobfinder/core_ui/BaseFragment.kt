@@ -12,9 +12,11 @@ open class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         onInitViews()
+        onInitObservers()
         onInitListeners()
     }
 
+    protected open fun onInitObservers() = Unit
 
     protected open fun onInitViews() = Unit
 

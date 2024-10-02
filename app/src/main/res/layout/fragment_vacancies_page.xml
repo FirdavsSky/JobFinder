@@ -28,6 +28,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/close_window"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_arrow_left" />
 
             <Space
@@ -40,6 +43,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/button_eye"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_eye_to_detail" />
 
             <ImageButton
@@ -47,6 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/button_share"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_share" />
 
             <ImageButton
@@ -54,11 +63,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/button_favorite"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:src="@drawable/ic_heart" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Добавляем ScrollView для прокрутки содержимого -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -76,25 +87,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_regular"
-                android:text="@string/text_job_title"
                 android:textColor="#fff"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                tools:text="@string/text_job_title" />
 
             <TextView
                 android:id="@+id/text_income_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_pro_regular"
-                android:text="Уровень дохода не указан"
                 android:textColor="#fff"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:text="@string/salary" />
 
             <TextView
                 android:id="@+id/text_experience"
                 style="@style/TextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Требуемый опыт: от 1 года до 3 лет" />
+                tools:text="@string/experiences" />
 
             <TextView
                 android:id="@+id/text_type_of_employment"
@@ -102,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="Полная занятость, полный день" />
+                tools:text="@string/busy" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -123,12 +134,13 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="147 человек уже откликнулись" />
+                        tools:text="@string/textResponded" />
 
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_margin="10dp"
+                        android:contentDescription="@string/human_responded"
                         android:src="@drawable/ic_responded" />
 
                 </LinearLayout>
@@ -145,12 +157,13 @@
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="2 человека сейчас смотрят" />
+                        tools:text="@string/text_viewers_layout" />
 
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_margin="10dp"
+                        android:contentDescription="@string/text_viewers_icon"
                         android:src="@drawable/ic_eye" />
 
                 </LinearLayout>
@@ -161,14 +174,15 @@
                 style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                tools:text="@string/text_company_layout" />
 
             <TextView
                 style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Ваши задачи"
+                android:text="@string/text_your_task"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -177,14 +191,15 @@
                 style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                tools:text="@string/text_task_layout" />
 
             <TextView
                 style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Задайте вопрос работодателю"
+                android:text="@string/question"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -193,7 +208,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Он получит его с откликом на вакансию"
+                android:text="@string/he_will_receive"
                 android:textColor="#858688" />
 
             <ListView
@@ -203,12 +218,13 @@
                 android:layout_marginTop="20dp"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="8dp"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                tools:ignore="NestedScrolling" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_apply"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="48dp"
                 android:layout_marginVertical="20dp"
                 android:background="@drawable/button_reply_detail_background"
                 android:clickable="true"
@@ -219,7 +235,6 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 
 </LinearLayout>

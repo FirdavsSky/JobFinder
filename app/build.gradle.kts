@@ -70,6 +70,8 @@ dependencies {
     // Библиотека Glide для загрузки изображения
     implementation (libs.glide)
 
+    ////Добавить библиотеку AdapterDelegate
     implementation (libs.adapterdelegates4.kotlin.dsl)
+
 
 }

@@ -10,7 +10,7 @@ import com.example.jobfinder.R
 import com.example.jobfinder.core_ui.BaseFragment
 import com.example.jobfinder.utils.findViewById
 
-private const val ARG_PARAM1 = "param1"
+private const val JOB_PARAM = "jobVacancy"
 
 class VacanciesPageFragment : BaseFragment(R.layout.fragment_vacancies_page) {
 
@@ -34,7 +34,7 @@ class VacanciesPageFragment : BaseFragment(R.layout.fragment_vacancies_page) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            jobVacancy = it.getParcelable(ARG_PARAM1)
+            jobVacancy = it.getParcelable(JOB_PARAM)
         }
     }
 
@@ -60,34 +60,6 @@ class VacanciesPageFragment : BaseFragment(R.layout.fragment_vacancies_page) {
         listView = findViewById(R.id.questionList)
     }
 
-    private fun populateData() {
-        buttonFavorite.setImageResource(
-            if (jobVacancy?.isFavorite == true) R.drawable.ic_heart_active else R.drawable.ic_heart
-        )
-
-        textJobTitle.text = jobVacancy?.title
-        textIncomeTitle.text = jobVacancy?.salary
-        textExperience.text = getString(R.string.required_experience, jobVacancy?.experience)
-        textTypeOfEmployment.text = formatSchedules(jobVacancy?.schedules)
-        textResponded.text = getString(R.string.applied_count, jobVacancy?.appliedNumber)
-        textViewers.text = getString(R.string.viewers_count, jobVacancy?.lookingNumber)
-        company.text = getString(R.string.company_description, jobVacancy?.company, jobVacancy?.description)
-        responsibilities.text = jobVacancy?.responsibilities
-
-        listAdapter = ArrayAdapter(
-            requireContext(),
-            R.layout.item_question,
-            R.id.text_question,
-            jobVacancy?.questions ?: emptyList()
-        )
-        listView.adapter = listAdapter
-    }
-
-    private fun formatSchedules(schedules: List<String>?): String {
-        return schedules?.joinToString(separator = ", ") { it.lowercase() }?.replaceFirstChar { it.uppercase() }
-            ?: ""
-    }
-
     override fun onInitListeners() {
         super.onInitListeners()
 
@@ -96,12 +68,54 @@ class VacanciesPageFragment : BaseFragment(R.layout.fragment_vacancies_page) {
         }
     }
 
+    private fun populateData() {
+
+        jobVacancy?.let {
+
+            with(it) {
+
+                buttonFavorite.setImageResource(
+                    if (isFavorite) R.drawable.ic_heart_active else R.drawable.ic_heart
+                )
+                textJobTitle.text = title
+                textIncomeTitle.text = salary
+                textExperience.text =
+                    getString(R.string.required_experience, experience)
+
+                textTypeOfEmployment.text = formatSchedules(schedules)
+                textResponded.text = getString(R.string.applied_count, appliedNumber)
+                textViewers.text = getString(R.string.viewers_count, lookingNumber)
+
+                this@VacanciesPageFragment.company.text = getString(
+                    R.string.company_description,
+                    company,
+                    description
+                )
+                this@VacanciesPageFragment.responsibilities.text = responsibilities
+
+                listAdapter = ArrayAdapter(
+                    requireContext(),
+                    R.layout.item_question,
+                    R.id.text_question,
+                    questions
+                )
+                listView.adapter = listAdapter
+            }
+        }
+    }
+
+    private fun formatSchedules(schedules: List<String>?): String {
+        return schedules?.joinToString(separator = ", ") { it.lowercase() }
+            ?.replaceFirstChar { it.uppercase() }
+            ?: ""
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(jobVacancy: JobVacancy) =
             VacanciesPageFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable(ARG_PARAM1, jobVacancy)
+                    putParcelable(JOB_PARAM, jobVacancy)
                 }
             }
     }

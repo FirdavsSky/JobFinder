@@ -8,6 +8,5 @@
     android:background="@color/black"
     android:gravity="center_horizontal"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    tools:context=".fragments.SearchFragment"
+    tools:context=".fragments.MatchingJobsFragment"
     tools:listitem="@layout/item_vacancy_card" />
-

@@ -22,7 +22,7 @@ open class BaseVMFragment<VM : ViewModel>(@LayoutRes layoutId: Int, vmClass: Cla
         ViewModelProvider(this)[vmClass]
     }
 
-    protected open fun onInitObservers() = Unit
+    override fun onInitObservers() = Unit
 
     protected fun <T> LiveData<T>.observe(observer: Observer<T>) {
         observe(viewLifecycleOwner, observer)

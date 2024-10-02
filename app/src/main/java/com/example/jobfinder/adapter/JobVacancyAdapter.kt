@@ -19,6 +19,7 @@ class JobVacancyAdapter(
 
     private var onJobItemClicked: OnJobItemClickListener? = null
 
+
     init {
         delegatesManager.addDelegate(jobVacancyDelegate())
     }
@@ -40,29 +41,32 @@ class JobVacancyAdapter(
             val applyButton: Button = findViewById(R.id.button_apply)
 
             bind {
-                lookingTextView.text = if (item.lookingNumber != 0){
-                    "Сейчас просматривает ${item.lookingNumber} человек"
-                } else{
-                    ""
+                item.apply {
+                    lookingTextView.text = if (lookingNumber != 0){
+                        "Сейчас просматривает ${lookingNumber} человек"
+                    } else{
+                        ""
+                    }
+                    titleTextView.text = title
+                    addressTextView.text = address
+                    companyTextView.text = company
+                    textExperience.text = "Опыт ${experience}"
+                    textPublishedDate.text = getFormattedDate(publishedDate)
+
+
+                    // Обработка состояния кнопки "Избранное"
+                    favoriteButton.setImageResource(
+                        if (isFavorite) R.drawable.ic_heart_active else R.drawable.ic_heart
+                    )
+                    favoriteButton.setOnClickListener { onFavoriteClick(item) }
+
+                    applyButton.setOnClickListener { onApplyClick(item) }
+
+                    itemView.setOnClickListener {
+                        onJobItemClicked?.onJobItemClicked(item)
+                    }
                 }
-                titleTextView.text = item.title
-                addressTextView.text = item.address
-                companyTextView.text = item.company
-                textExperience.text = "Опыт ${item.experience}"
-                textPublishedDate.text = getFormattedDate(item.publishedDate)
 
-
-                // Обработка состояния кнопки "Избранное"
-                favoriteButton.setImageResource(
-                    if (item.isFavorite) R.drawable.ic_heart_active else R.drawable.ic_heart
-                )
-                favoriteButton.setOnClickListener { onFavoriteClick(item) }
-
-                applyButton.setOnClickListener { onApplyClick(item) }
-
-                itemView.setOnClickListener {
-                    onJobItemClicked?.onJobItemClicked(item)
-                }
             }
         }
     }
