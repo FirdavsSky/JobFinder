@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">JobFinder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_location">Минск</string>
+    <string name="text_company">Мобириск</string>
+    <string name="text_viewers">Сейчас просматривает 1 человек</string>
+    <string name="text_job_title">UI/UX Designer</string>
+    <string name="text_experience">Опыт от 1 года до 3 лет</string>
+    <string name="text_published_date">Опубликовано 20 февраля</string>
+    <string name="button_apply">Откликнуться</string>
+    <string name="experience">Опыт</string>
+    <string name="location">Локация</string>
+    <string name="favorite">избранное</string>
+
+    <string name="required_experience">Требуемый опыт: %1$s</string>
+    <string name="applied_count">%1$d человек уже откликнулись</string>
+    <string name="viewers_count">%1$d человек сейчас смотрят</string>
+    <string name="company_description">%1$s - %2$s</string>
+    <string name="filter">Filter</string>
+    <string name="close_window">Close window</string>
+    <string name="button_eye">Button eye</string>
+    <string name="button_favorite">Button favoite</string>
+    <string name="button_share">Button share</string>
+    <string name="salary">Уровень дохода не указан</string>
+    <string name="experiences">Требуемый опыт: от 1 года до 3 лет</string>
+    <string name="busy">Полная занятость, полный день</string>
+    <string name="textResponded">147 человек уже откликнулись</string>
+    <string name="human_responded">Human responded</string>
+    <string name="text_viewers_layout">2 человека сейчас смотрят</string>
+    <string name="text_viewers_icon">Иконка сколько человек смотрят</string>
+    <string name="text_company_layout">Мобирикс - Мы ищем специалиста на позицию UX/UI Designer, который вместе с коллегами будет заниматься проектированием пользовательских интерфейсов внутренних и внешних продуктов компании.</string>
+    <string name="text_your_task">Ваши задачи</string>
+    <string name="text_task_layout">- проектирование пользовательских сценариев и создание прототипов;\n- разработка интерфейсов для продуктов компании (Web+App);\n- работа над созданием и улучшением Дизайн-системы;\n- взаимодействие с командами frontend-разработки</string>
+    <string name="question">Задайте вопрос работодателю</string>
+    <string name="he_will_receive">Он получит его с откликом на вакансию</string>
+    <string name="search_edit_text">Search edit text</string>
 </resources>

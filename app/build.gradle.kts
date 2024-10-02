@@ -13,7 +13,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,7 +41,37 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Навигация и UI
+    implementation (libs.androidx.navigation.fragment.ktx)
+    implementation (libs.androidx.navigation.ui.ktx)
+
+    // AdapterDelegates для работы с адаптерами
+    implementation (libs.adapterdelegates4)
+
+    implementation (libs.kotlin.stdlib)
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+
+
+    // Koin core features
+    implementation (libs.koin.core)
+
+    // Koin Android features
+    implementation (libs.koin.android)
+    testImplementation(libs.koin.test)
+
+    // Библиотека Glide для загрузки изображения
+    implementation (libs.glide)
+
+    ////Добавить библиотеку AdapterDelegate
+    implementation (libs.adapterdelegates4.kotlin.dsl)
+
+
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search"
+        android:title="Поиск"
+        android:orderInCategory="1"/>
+
+    <item
+        android:id="@+id/heart"
+        android:title="Избранное"
+        android:icon="@drawable/ic_heart"
+        android:orderInCategory="2"/>
+
+    <item
+        android:id="@+id/responses"
+        android:title="Отклики"
+        android:icon="@drawable/ic_responses"
+        android:orderInCategory="3"/>
+
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/ic_message"
+        android:title="Сообщения"
+        android:orderInCategory="4"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Профиль"
+        android:orderInCategory="5"/>
+
+</menu>
